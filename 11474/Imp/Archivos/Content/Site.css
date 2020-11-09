@@ -1,0 +1,127 @@
+﻿html body {
+    height: 100%;
+    overflow: auto;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+hr{
+    margin-top:3px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+.body-content {
+    padding-top: 25px;
+}
+
+/* Footer */
+.container-foot {
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+
+/* Login partial */
+.dropdown-toggle {
+    color: #FFF;
+    border-radius: 5px;
+}
+
+.navbar-inverse {
+    background-color: #2950A2;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Boton flotante */
+.flotante {
+    position: fixed;
+    top: 90px;
+    right: 8%;
+}
+
+.div-flotante {
+    position: fixed;
+    top: 90px;
+    right: 1%
+}
+
+/* Login */
+#loginForm {
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 400px;
+}
+
+/* Elementos por pagina */
+#selTamanioPaginas {
+    margin-top: 3px;
+    width: 70px;
+    border-width: 0px;
+    margin-bottom: 0px;
+}
+
+option.first-option {
+    font-weight: bold;
+}
+
+@media (max-width: 1300px) {
+    .flotante {
+        position: fixed;
+        top: 90px;
+        right: 3%;
+    }
+}
+
+@media (max-width: 800px) {
+    #loginForm {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+}
+
+@media (max-width: 620px) {
+    #loginForm {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+
+@media (max-width: 530px) {
+    #loginForm {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+}
+
+@media (max-width: 460px) {
+    #loginForm {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .flotante {
+        position: fixed;
+        top: 90px;
+        right: 10px;
+    }
+}

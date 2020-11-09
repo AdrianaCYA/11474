@@ -1,0 +1,185 @@
+﻿﻿@{
+    ViewBag.Title = "Dashboard";
+}
+<link href="~/Content/PackA.css" rel="stylesheet" />
+<link href="~/Content/Tabs.css" rel="stylesheet" />
+<script src="~/Scripts/PackA.js"></script>
+<script src="~/Scripts/script-debug.js"></script>
+
+<h3>Parámetros Tamaño Pack A</h3>
+<hr />
+
+<script>setPermission('@ViewBag.Edit', '@ViewBag.Remove', '@ViewBag.Export');</script>
+
+<div id="TabMenu" class="">
+    <ul class="nav nav-pills">
+        <li class="active">
+            <a href="#hide" data-toggle="tab">
+                <span class="glyphicon glyphicon-eject"></span>
+            </a>
+        </li>
+        <li>
+            <a href="#filtro" data-toggle="tab">
+                <span class="glyphicon glyphicon-filter"></span>
+                &nbsp;Filtro
+            </a>
+        </li>
+        @*<li>
+                <a href="#actualizar" data-toggle="tab">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    &nbsp;Editar
+                </a>
+            </li>*@
+        @if (ViewBag.Import)
+        {
+            <li>
+                <a href="#importar" data-toggle="tab">
+                    <span class="glyphicon glyphicon-floppy-open"></span>
+                    &nbsp;Importar
+                </a>
+            </li>
+        }
+        @if (ViewBag.Export)
+        {
+            <li>
+                <a href="#exportar" data-toggle="tab">
+                    <span class="glyphicon glyphicon-download-alt"></span>
+                    &nbsp;Exportar
+                </a>
+            </li>
+        }
+    </ul>
+
+    <div class="tab-content clearfix">
+        <div class="tab-pane active" id="hide">
+        </div>
+
+        <div class="tab-pane well row" id="filtro">
+            <div class="col-md-12">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="División" data-mvcgrid-type="filter" data-mvcgrid-option="Division" id="Division" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Subdivisión" data-mvcgrid-type="filter" data-mvcgrid-option="Subdivision" id="Subdivision" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Grupo" data-mvcgrid-type="filter" data-mvcgrid-option="Grupo" id="Grupo" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Familia" data-mvcgrid-type="filter" data-mvcgrid-option="Familia" id="Familia" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Subfamilia" data-mvcgrid-type="filter" data-mvcgrid-option="Subfamilia" id="Subfamilia" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <select id="TipoTalla" class="form-control"><option value=""></option></select>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-md-2">
+                    <div class="form-group">
+                        <input type="button" value="Buscar" class="btn btn-default" id="Filtro" />
+                    </div>
+                </div>*@
+        </div>
+
+        <div class="tab-pane well row" id="actualizar">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>División</label>
+                    <select id="Division" class="form-control"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Sub División</label>
+                    <select id="SubDivision" class="form-control"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Grupo</label>
+                    <select id="Grupo" class="form-control"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Familia</label>
+                    <select id="Familia" class="form-control"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Sub Familia</label>
+                    <select id="SubFamilia" class="form-control"></select>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label>Pack A</label>
+                    <input type="text" class="form-control" id="PackA" placeholder="Tamaño" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="PackA" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label></label>
+                    <input type="button" value="Guardar" class="btn btn-default" id="GuardarPackA" />
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane well row" id="importar">
+            <div id="divFile" class="col-md-3">
+                <p id="textoFile">
+                    <span class="glyphicon glyphicon-cloud-upload"></span>
+                    Cargar Archivo
+                </p>
+                <input type="file" name="file" id="cargarFile" accept=".csv" />
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="button" value="Subir" class="btn btn-default" id="btnSubir" />
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane well row" id="exportar">
+            <div id="Exportar" class="col-md-3">
+                <p id="textoFile">
+                    <span class="glyphicon glyphicon-cloud-download"></span>
+                    Exportar a excel
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div>
+    Elementos por página
+    <select id="selTamanioPaginas">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+</div>
+
+@Html.MVCGrid("PackAGrid")
+
+
+<!-- Modal Confirm -->
+@Html.Partial("modalConfirm")

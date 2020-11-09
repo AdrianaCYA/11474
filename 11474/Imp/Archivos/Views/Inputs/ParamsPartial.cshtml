@@ -1,0 +1,75 @@
+﻿﻿@model List<List<CalculadoraTallas.Models.CAL_Params>>
+
+@if (Model != null && Model.Count > 0)
+{
+<div class="form-horizontal" >
+    <!-- Grupo de parametros-->
+    @for (int j = 0; j < Model.Count; j++)
+    {
+        var grupo = Model[j];
+        if (grupo.Count > 0)
+        {
+            <div class="col-md-10">
+                @{
+                    int num = grupo.Count() / 2;
+                    if (grupo.Count() % 2 != 0)
+                    {
+                        num++;
+                    }
+                }
+                <!-- Parametros-->
+                <div class="col-md-6">
+                    @for (int i = 0; i < num; i++)
+                    {
+                        var elemento = grupo[i];
+                        <div class="form-group ">
+                            <div class="col-md-7">
+                                <label for="@elemento.idParam">@elemento.paramName</label>
+                            </div>
+                            <div class="col-md-5">
+                                <input class="text-box single-line form-control" data-val="true" data-val-number="Debe ser un numero"
+                                       data-val-required="Es obligatorio" id="@elemento.idParam" name="@elemento.paramCode" value="@elemento.paramValue" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="@elemento.idParam" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!-- Parametros-->
+                <div class="col-md-6">
+                    @for (int i = num; i < grupo.Count(); i++)
+                    {
+                        var elemento = grupo[i];
+                        <div class="form-group ">
+                            <div class="col-md-7 ">
+                                <label for="@elemento.idParam">@elemento.paramName</label>
+                            </div>
+                            <div class="col-md-5">
+                                <input class="text-box single-line form-control" data-val="true" data-val-number="Debe ser un numero"
+                                       data-val-required="Es obligatorio" id="@elemento.idParam" name="@elemento.paramCode" value="@elemento.paramValue" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="@elemento.idParam" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            if (grupo[0].paramCode.ToUpper().Contains("PORPEDNAC"))
+            {
+                <div class="col-md-1">
+                    <div class="col-md-12 alert alert-success">
+                        <strong id="totalPedidosNacional"></strong>
+                    </div>
+                </div>
+            }
+            else if (grupo[0].paramCode.ToUpper().Contains("PORPEDIMP"))
+            {
+                <div class="col-md-1">
+                    <div class="col-md-12<s alert alert-success">
+                        <strong id="totalPedidosImportado"></strong>
+                    </div>
+                </div>
+            }
+            <hr  class="col-md-11"/>
+        }
+    }
+</div>
+}

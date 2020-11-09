@@ -1,0 +1,68 @@
+﻿.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: #2950A2;
+}
+.nav-pills > li > a {
+    color: #2950A2;
+}
+
+#TabMenu .nav-pills > li > a {
+    border-radius: 4px 4px 0px 0;
+}
+
+p#textoFile {
+    font-size: 14px;
+    text-align: center;
+    color: #000;
+}
+
+div#divFile, div#Exportar, div#NuevoShare {
+    position: relative;
+    margin: 10px;
+    padding: 10px 0 0 0;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 1px 2px 0px #808080;
+    border: 1px solid #808080;
+}
+
+    div#divFile:hover, div#Exportar:hover, div#NuevoShare:hover {
+        background-color: #d7d5d5;
+    }
+
+#btnSubir {
+    min-width: 200px;
+    margin: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+input#cargarFile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+
+@media (max-width: 990px) {
+    #btnSubir {
+        min-width: 300px;
+        width: 50%;
+        float: left;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 450px) {
+    div#divFile, div#Exportar, div#NuevoShare {
+        width: 200px;
+    }
+}

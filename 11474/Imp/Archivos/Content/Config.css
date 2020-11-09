@@ -1,0 +1,39 @@
+﻿.filter-data {
+    border-radius: 8px;
+    min-width: 100px;
+    min-height: 0px;
+    margin: 15px 0;
+    padding: 7px 20px 0 0px;
+    text-align: right;
+}
+
+#filterProfile{
+    padding-top:5px;
+}
+
+/* Table */
+.button-column {
+    border: none;
+    background-color: transparent;
+}
+
+.button-column:hover {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+i.fa-save, i.fa-pencil-alt {
+    color: var(--azul);
+}
+
+i.fa-trash-alt {
+    color: var(--rojo-error);
+}
+
+i.fa-check {
+    color: var(--verde-aqua);
+}
+
+i.fa-times {
+    color: var(--rojo-error);
+}
+/* END Table */

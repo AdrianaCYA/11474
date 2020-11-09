@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Configuración";
+}
+<link href="~/Content/Config.css" rel="stylesheet" />
+<link href="~/Content/Check.css" rel="stylesheet" />
+<script src="~/Scripts/Config.js"></script>
+
+<!-- Content page -->
+<div class="row">
+    <h2 class="col-md-8">Asignación de actividades</h2>
+    <div class="filter-data col-md-4">
+        <div class="form-group col-md-5" id="filterProfile">
+            <label>Perfil:</label>
+        </div>
+        <div class="col-md-7">
+            <select class="form-control" id="profiles"></select>
+        </div>
+    </div>
+</div>
+<hr />
+
+<div id="allData">
+
+    <div>
+        Elementos por página
+        <select id="selTamanioPaginas">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+    </div>
+
+    <!-- Table -->
+    <div class="col-md-12 configGrid">
+        @Html.MVCGrid("ActivitiesGrid")
+    </div>
+
+</div>
+<!-- Modal Filter -->
+@*@Html.Partial("ModalFilterActivities")*@
+
+
+<script type="text/javascript">
+    @{
+        bool ep = false;
+        if (ViewBag.EditPermissions) { ep = true; }
+    }
+    setEditPermissions("@ep");
+</script>

@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Parámetros";
+}
+<link href="~/Content/Inputs.css" rel="stylesheet" />
+<script type="text/javascript" src="~/Scripts/Inputs.js"></script>
+
+<div class="col-md-12">
+    <h3 class="col-md-4">Parámetros</h3>
+
+    <div class="col-md-8" id="Temporada">
+        <div class="form-group col-md-3">
+            <select  id="Division" class="form-control"></select>
+        </div>
+        <div class="form-group col-md-3">
+            <select id="Temporada" class="form-control"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <select id="Anio" class="form-control"></select>
+        </div>
+        @if (ViewBag.UpdateSeason)
+        {
+            <div class="col-md-2">
+                <input type="submit" value="Actualizar" class="btn btn-default" id="btnActualizar" required />
+            </div>
+        }
+        @if (ViewBag.NewSeason)
+        {
+            <div class="dropdown col-md-2" id="ControladorTemporada">
+                <div class="btn-add" data-toggle="dropdown">
+                    +
+                </div>
+                <div class="dropdown-menu" id="AgregarTemporada">
+                    <form class="px-4 py-3">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <select id="selDivision" class="form-control">DIVISION</select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" id="selTemporada">
+                                    <option value="" class="first-option">TEMPORADA</option>
+                                    <option value="PRIMAVERA">PRIMAVERA</option>
+                                    <option value="VERANO">VERANO</option>
+                                    <option value="OTOÑO">OTOÑO</option>
+                                    <option value="INVIERNO">INVIERNO</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" id="selAño">
+                                    <option value="" class="first-option">AÑO</option>
+                                    @{ var añoInicial = DateTime.Now.Year - 1; }
+                                    @for (int i = 0; i < 4; i++)
+                                    {
+                                        var @año = añoInicial + i;
+                                        <option value="@año">@año</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8 col-md-offset-4">
+                            <input type="button" value="Agregar Parametros" class="btn btn-default" id="btnTemporada" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+         }
+    </div>
+</div>
+<hr class="col-md-11"/>
+
+<div id="contenedor"></div>
+

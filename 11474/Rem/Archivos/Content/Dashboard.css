@@ -1,0 +1,143 @@
+﻿.cargar-teradata{
+    text-align:center;
+}
+
+.dropdown-menu {
+    min-height: 50px;
+    min-width: 200px;
+    padding: 10px;
+}
+.dropdown-menu#Tera {
+    width: 300px;
+}
+input#CargarDatos{
+    margin-top: 25px;
+}
+input {
+    margin-bottom: 5px;
+    align-content: center;
+    min-width: 150px;
+    padding: 10px;
+}
+input.text-box{
+    min-width: 50%;
+}
+select{
+    margin-bottom: 5px;
+    align-content: center;
+    min-width: 50px;
+    width: 150px;
+    padding: 10px;
+}
+
+.modal-dialog {
+    align-content: center;
+    text-align: center;
+}
+.modal-header{
+    padding-bottom:6px;
+    padding-top: 6px;
+}
+.modal-body {
+    min-height: 100px;
+    background-color: white;
+    border-radius: 5px;
+    padding-top:6px;
+}
+
+#shareModal .modal-dialog, #shareModalAdd .modal-dialog {
+    min-width: 80%;
+}
+#shareModal > div > div .modal-body{
+    min-height: 300px;
+}
+
+#shareModal > div > div > div .well {
+    text-align: left;
+    margin-bottom: 5px;
+    margin-left: 5%;
+    width: 90%;
+}
+#shareModalAdd > div > div > div .well {
+    text-align: left;
+    margin-bottom: 5px;
+    margin-left: 5%;
+    width: 90%;
+}
+#shareModalAdd > div > div > div > div input {
+    width: 100%;
+}
+
+.loader {
+    border: 16px solid #808080;
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin-top: 30px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#cronometro {
+    text-align: center;
+    font-family: Calibri,Arial;
+    font-weight: 300;
+    font-size: 45px;
+    color: gray;
+    letter-spacing: 3px;
+}
+
+
+@media (max-width: 800px) {
+    .btn-group {
+        margin-bottom: 10px;
+    }
+
+    input#CargarDatos, input#Filtro {
+        margin-top: 0px;
+    }
+}
+
+.btnEdit {
+    background-color: rgba(249,249,249,0); 
+    color: #2331d3;
+    border: 0px;
+}
+
+.btnEdit:hover {
+    color: #ff0000;
+}
+
+div#tablaShare{
+    width: 70%;
+    margin: 0 15%;
+    text-align: center;
+}
+tbody#tableShare{
+    text-align: center;
+}
+th input.text-box{
+    margin-bottom:0px;
+}
+div#tablaShare > .table{
+    margin-bottom:0px;
+}
+#clearEC{
+    width: 45px;
+}
+
+select#TemporadaTeradata{
+    margin-top: 5px;
+}

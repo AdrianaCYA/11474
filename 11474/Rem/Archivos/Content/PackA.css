@@ -1,0 +1,14 @@
+﻿
+.btnEdit {
+    background-color: rgba(249,249,249,0);
+    color: #2331d3;
+    border: 0px;
+}
+
+    .btnEdit:hover {
+        color: #ff0000;
+    }
+
+input.tamEdit {
+    width: 120px;
+}

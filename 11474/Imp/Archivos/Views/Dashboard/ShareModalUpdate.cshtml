@@ -1,0 +1,98 @@
+﻿
+<div class="modal fade top" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="confirmacionModalLabel" aria-hidden="true" data-backdrop="true">
+    <div class="modal-dialog">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>*@
+                <h3>Editar Share</h3>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <div class="well col-sm-10 col-sm-offset-1">
+                    <div class="col-sm-12">
+                        <div class="col-md-3">
+                            <div>Division:</div><label id="lblDivision">Division</label>
+                        </div>
+                        <div class="col-md-3">
+                            <div>SubDivsion:</div><label id="lblSubDivision">SubDivision</label>
+                        </div>
+                        <div class="col-md-3">
+                            <div>Grupo:</div><label id="lblGrupo">Grupo</label>
+                        </div>
+                        <div class="col-md-3">
+                            <div>Familia:</div><label id="lblFamilia">Familia</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-md-3">
+                            <div>SubFamilia:</div><label id="lblSubFamilia">SubFamilia</label>
+                        </div>
+                        <div class="col-md-3">
+                            <div>Temporada:</div><label id="lblTemporada">Temporada</label>
+                        </div>
+                        <div class="col-md-3">
+                            <div>Tipo de talla:</div><label id="lblTipoTalla">Tipo de talla</label>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="well col-sm-10 col-sm-offset-1">
+            <div class="col-sm-4">
+                <div>
+                    <div class="col-sm-5">Division:</div><label class="col-sm-7" id="lblDivision">Division</label>
+                </div>
+                <div>
+                    <div class="col-sm-5">SubDivsion:</div><label class="col-sm-7" id="lblSubDivision">SubDivision</label>
+                </div>
+                <div>
+                    <div class="col-sm-5">Grupo:</div><label class="col-sm-7" id="lblGrupo">Grupo</label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div>
+                    <div class="col-sm-5">Familia:</div><label class="col-sm-7" id="lblFamilia">Familia</label>
+                </div>
+                <div>
+                    <div class="col-sm-5">SubFamilia:</div><label class="col-sm-7" id="lblSubFamilia">SubFamilia</label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div>
+                    <div class="col-sm-5">Temporada:</div><label class="col-sm-7" id="lblTemporada">Temporada</label>
+                </div>
+                <div>
+                    <div class="col-sm-5">Tipo de talla:</div><label class="col-sm-7" id="lblTipoTalla">Tipo de talla</label>
+                </div>
+            </div>
+        </div>*@
+
+                <div id="tablaShare">
+                    <table class="table table-striped" id="tablaShare">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Talla</th>
+                                <th scope="col">Share</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaShare"></tbody>
+                        <tfoot id="tablaShare">
+
+                        </tfoot>
+                    </table>
+                </div>
+
+            </div>
+            <!--Modal Footer-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default CancelarShare" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary submitBtn" id="ActualizarShare">Guardar</button>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>

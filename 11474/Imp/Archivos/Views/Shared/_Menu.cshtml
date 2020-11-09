@@ -1,0 +1,63 @@
+﻿
+@if (Request.IsAuthenticated)
+{
+    <div class="sidebar-wrapper">
+        <div id="sidebar-wrapper">
+            <ul id="sidebar_menu" class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a id="menu-toggle" href="#">
+                        <span id="main_icon" class="glyphicon glyphicon-list"></span>
+                    </a>
+                </li>
+            </ul>
+            <div class="treeview">
+                <ul class="sidebar-nav" id="sidebar">
+                    <li><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+                    @{
+                        var listMenu = ViewBag.menu;
+                        if (listMenu != null)
+                        {
+                            foreach (var parent in listMenu)
+                            {
+                                if (parent.CHILDREN == null)
+                                {
+                                    if (parent.VIEW != null && parent.CONTROLLER != null)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action(parent.VIEW, parent.CONTROLLER)">
+                                                @parent.ITEM
+                                            </a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li> @parent.ITEM </li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a href="#@parent.ACTIVITY" class="collapsible">
+                                            @parent.ITEM <i class="glyphicon glyphicon-chevron-down"></i>
+                                        </a>
+                                        <ul class="sidebar-nav" id="@parent.ACTIVITY">
+                                            @foreach (var child in parent.CHILDREN)
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action(child.VIEW, child.CONTROLLER)">
+                                                        @child.ITEM
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+}

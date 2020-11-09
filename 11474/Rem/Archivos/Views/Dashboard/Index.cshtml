@@ -1,0 +1,242 @@
+﻿﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+<link href="~/Content/Dashboard.css" rel="stylesheet" />
+<link href="~/Content/Tabs.css" rel="stylesheet" />
+<script src="~/Scripts/Dashboard.js"></script>
+@*<script src="~/Scripts/script-debug.js"></script>*@
+
+<h3>Dashboard</h3>
+<hr />
+
+<script>setPermission('@ViewBag.EditShare', '@ViewBag.Export');</script>
+@{ var año = DateTime.Now.Year - 2; }
+
+<div id="TabMenu" class="">
+    <ul class="nav nav-pills">
+        <li class="active">
+            <a href="#hide" data-toggle="tab">
+                <span class="glyphicon glyphicon-eject"></span>
+            </a>
+        </li>
+        <li>
+            <a href="#filtro" data-toggle="tab">
+                <span class="glyphicon glyphicon-filter"></span>
+                &nbsp;Filtro
+            </a>
+        </li>
+        @if (ViewBag.Historical)
+        {
+            <li>
+                <a href="#historico" data-toggle="tab">
+                    <span class="glyphicon glyphicon-tasks"></span>
+                    &nbsp;Historico
+                </a>
+            </li>
+        }
+        @*<li>
+                <a href="#importar" data-toggle="tab">
+                    <span class="glyphicon glyphicon-floppy-open"></span>
+                    &nbsp;Importar
+                </a>
+            </li>*@
+        @if (ViewBag.NewShare)
+        {
+            <li>
+                <a href="#nuevoShare" data-toggle="tab">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    &nbsp;Nuevo Share
+                </a>
+            </li>
+        }
+        @if (ViewBag.Export)
+        {
+            <li>
+                <a href="#exportar" data-toggle="tab">
+                    <span class="glyphicon glyphicon-download-alt"></span>
+                    &nbsp;Exportar
+                </a>
+            </li>
+        }
+    </ul>
+
+    <div class="tab-content clearfix">
+        <div class="tab-pane active" id="hide">
+        </div>
+        <div class="tab-pane well row" id="filtro">
+            <div class="col-md-12">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="División" data-mvcgrid-type="filter" data-mvcgrid-option="Division" id="Division" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Subdivisión" data-mvcgrid-type="filter" data-mvcgrid-option="Subdivision" id="Subdivision" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Grupo" data-mvcgrid-type="filter" data-mvcgrid-option="Grupo" id="Grupo" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Familia" data-mvcgrid-type="filter" data-mvcgrid-option="Familia" id="Familia" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Subfamilia" data-mvcgrid-type="filter" data-mvcgrid-option="Subfamilia" id="Subfamilia" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <select id="Temporada" class="form-control" data-mvcgrid-type="filter" data-mvcgrid-option="Temporada"></select>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-md-2">
+                    <div class="form-group">
+                        <input type="button" value="Buscar" class="btn btn-default" id="Filtro" />
+                    </div>
+                </div>*@
+        </div>
+
+        <div class="tab-pane well row" id="historico">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Semanas</label>
+                    <input type="text" class="form-control" id="Semanas" placeholder="Semanas: 4" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Semanas" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label></label>
+                    <select id="TemporadaTeradata" class="form-control">
+                        @for (var i = 0; i < 3; i++)
+                        {
+                            <option value=""></option>
+                            var valor = año + i;
+                            <option value="PRIMAVERA @valor">PRIMAVERA @valor</option>
+                            <option value="VERANO @valor">VERANO @valor</option>
+                            <option value="OTOÑO @valor">OTOÑO @valor</option>
+                            <option value="INVIERNO @valor">INVIERNO @valor</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="button" value="Cargar historico" class="btn btn-default" id="CargarDatos" data-toggle="modal" data-target="" />
+            </div>
+        </div>
+
+        <div class="tab-pane well row" id="importar">
+            <div id="divFile" class="col-md-3">
+                <p id="textoFile">
+                    <span class="glyphicon glyphicon-cloud-upload"></span>
+                    Cargar Archivo
+                </p>
+                <input type="file" name="file" id="cargarFile" accept=".csv" />
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="button" value="Subir" class="btn btn-default" id="btnSubir" />
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane well row" id="nuevoShare">
+            <div id="NuevoShare" class="col-md-3">
+                <p id="textoFile">
+                    <span class="glyphicon glyphicon-open-file"></span>
+                    Agregar Nuevos Share
+                </p>
+            </div>
+        </div>
+
+        <div class="tab-pane well row" id="exportar">
+            <div id="Exportar" class="col-md-3">
+                <p id="textoFile">
+                    <span class="glyphicon glyphicon-cloud-download"></span>
+                    Exportar a excel
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div>
+    Elementos por página
+    <select id="selTamanioPaginas">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+</div>
+
+@Html.MVCGrid("DashboardGrid")
+
+<!--Modal: historicoModal-->
+<div class="modal fade top" id="historicoModal" tabindex="-1" role="dialog" aria-labelledby="historicoModalLabel" aria-hidden="true" data-backdrop="true">
+    <div class="modal-dialog">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <h2 id="TituloDashboard">¡Obteniendo historico!</h2>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <h4>Por favor espere hasta que termine el proceso. </h4>
+                <h4>Puede tardar más de 30 minutos.</h4>
+                <div id="cronometro">00 : 00 : 00 : 00 </div>
+                <div class="loader"></div>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal: historicoModal-->
+<!--Modal: confirmacionModal-->
+<div class="modal fade top" id="confirmacionModal" tabindex="-1" role="dialog" aria-labelledby="confirmacionModalLabel" aria-hidden="true" data-backdrop="true">
+    <div class="modal-dialog">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h2></h2>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <h4></h4>
+                <h4>Se sobrescribirán los datos de la temporada en el historico.</h4>
+                <h4>¿Desea continuar?</h4>
+            </div>
+            <!--Modal Footer-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary submitBtn" onclick="cargarTeradata('@System.Configuration.ConfigurationManager.AppSettings["url"].ToString()')">Continuar</button>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal: confirmacionModal-->
+<!--Modal: shareModalUpdate-->
+@Html.Action("ShareModalUpdate", "Dashboard")
+<!--Modal: shareModalUpdate-->
+<!--Modal: shareModalAdd-->
+@Html.Action("ShareModalAdd", "Dashboard")
+<!--Modal: shareModalAdd-->
+<br />
+
